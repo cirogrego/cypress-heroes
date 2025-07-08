@@ -1,35 +1,16 @@
 import userData from '../fixtures/userData.json'
 import LoginPage from '../pages/loginPage.js'
 import DashboardPage from '../pages/dashboardPage.js'
+import NewHeroesPage from '../pages/newHeroesPage.js'
 
 
 const loginPage = new LoginPage
 const dashboardPage = new DashboardPage
+const newHeroesPage = new NewHeroesPage
 
 describe('Cypress Heroes', () => {
 
   const selectorList = {
-   
-    
-    createNewHeroeButton:'.text-white',
-    nameField:'[name="name"]',
-    priceField:'[name="price"]',
-    fansField:'[name="fans"]',
-    savesField:'[name="saves"]',
-    powersField:'select[name="powers"]',
-    avatarField:'[type="file"]',
-    submitButton:'.text-white',
-    likeButton:'[data-cy="like"]',
-    savesButton:'[data-cy="money"]',
-    hireHeroeBox:'.shadow-lg',
-    yesSavesButton:'.gap-2 > .text-white',
-    pencilButton:'[data-cy="pencil"]',
-    deleteHeroeButton:'[type="button"]',
-    deleteHeroeBox:'.shadow-lg',
-    yesDeleteHeroeButton:'.text-white',
-    cyHeroesButton:'[src="/images/cyheroes-logo.svg"]'
-    
-
     
 
   }
@@ -37,8 +18,16 @@ describe('Cypress Heroes', () => {
   it.only('Login - Success', () => {
     loginPage.accessLoginPage()
     loginPage.loginWithUser(userData.userSuccess.username,userData.userSuccess.password)
+
+    newHeroesPage.fillNewHeroesDetails('Fyier', '30', '20', '15')
     
     dashboardPage.checkDashboardPage()
+    dashboardPage.dashboardPanel()
+
+    
+
+
+    
     
     
     //cy.get(selectorList.createNewHeroeButton).eq(0).click()
@@ -49,6 +38,7 @@ describe('Cypress Heroes', () => {
     //cy.get(selectorList.powersField).select('Flying')
     //cy.get(selectorList.avatarField).selectFile('Avião.jpg')
     //cy.get(selectorList.submitButton).eq(1).click()
+
     //cy.get(selectorList.likeButton).eq(0).click()
     //cy.get(selectorList.savesButton).eq(0).click()
     //cy.get(selectorList.hireHeroeBox)
