@@ -8,6 +8,14 @@
     "userFail": {
       "username":"admin@test.com",
       "password":"test"
+    },
+
+    "newHeroeUser": {
+      "name":"Flyier",
+      "price":"30",
+      "fans":"20",
+      "saves":"15"
+      
     }
 
     }

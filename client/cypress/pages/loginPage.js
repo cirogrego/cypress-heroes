@@ -21,9 +21,12 @@ class LoginPage {
         cy.get(this.selectorList().passwordField).type(password)
         cy.get(this.selectorList().signinButton).click()
 
+    }
 
+    checkAccessInvalid() {
+        cy.get(this.selectorList().wrongCredentialAlert).contains('Invalid email or password')
 
-
+        
     }
 }
 

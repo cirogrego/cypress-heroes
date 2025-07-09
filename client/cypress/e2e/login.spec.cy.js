@@ -1,28 +1,28 @@
 import userData from '../fixtures/userData.json'
 import LoginPage from '../pages/loginPage.js'
 import DashboardPage from '../pages/dashboardPage.js'
-import NewHeroesPage from '../pages/newHeroesPage.js'
 
 const loginPage = new LoginPage
 const dashboardPage = new DashboardPage
-const newHeroesPage = new NewHeroesPage
 
-describe('Cypress Heroes', () => {
+describe('Login - Cypress Heroes', () => {
 
+
+    it.only('Login - Success', () => {
   
-  it('User Info Update - Success', () => {
-
     loginPage.accessLoginPage()
     loginPage.loginWithUser(userData.userSuccess.username,userData.userSuccess.password)
-
     dashboardPage.checkDashboardPage()
-    dashboardPage.dashboardPanel()
-
-    newHeroesPage.fillNewHeroesDetails(userData.newHeroeUser.name,userData.newHeroeUser.price,userData.newHeroeUser.fans,
-      userData.newHeroeUser.saves)
+ 
+    })
     
-   
-  })
-
+    
+    it('Login - Fail', () => {
+  
+    loginPage.accessLoginPage()
+    loginPage.loginWithUser(userData.userFail.username,userData.userFail.password)
+    loginPage.checkAccessInvalid()
+ 
+    })
 
 })
